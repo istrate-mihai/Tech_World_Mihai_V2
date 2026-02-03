@@ -63,6 +63,12 @@ const projectsLocalData = {
         website: 'https://computer-history.netlify.app/',
         img: 'computer_history.png',
     },
+    "Livewire-Poll-App": {
+        prettyName: 'Poll Vote App',
+        website: 'https://livewire-poll-app-production.up.railway.app/',
+        img: 'livewire_poll_app.png',
+        language: 'PHP - Laravel',
+    },
     // "Link_Academy_PHP_Portfolio": {
     //     prettyName: 'Link Academy Portfolio',
     //     website: '',
@@ -298,9 +304,7 @@ const Projects = {
         },
         getProjects: function () {
             this.projectsList = this.projects.slice(0, this.projectsCount);
-            // console.log(this.projectsList);
-            const projectNameList = this.projectsList.map(project => project.name);
-            // console.log(projectNameList);
+
             return this.projectsList;
         },
         loadMore: function () {
@@ -308,8 +312,6 @@ const Projects = {
                 this.projectsCount += 5;
                 this.projectsList = this.projects.slice(0, this.projectsCount);
             }
-            const projectNameList = this.projectsList.map(project => project.name);
-            // console.log(projectNameList);
         },
         handleImageError: function (event) {
             // Replace broken image with placeholder

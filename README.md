@@ -1,8 +1,24 @@
-Vue.js verison of my original personal website which was vanilla js.
+# tech_world_mihai_v2
 
-Built with:
-- Vue.js
-- Vue Router
-- Axios
-- Github API
-- CI / CD with Netlify servers
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).

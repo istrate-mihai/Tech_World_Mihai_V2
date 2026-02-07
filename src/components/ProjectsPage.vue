@@ -67,6 +67,9 @@ async function fetchData() {
     const response = await axios.get(
       `https://api.github.com/users/istrate-mihai/repos?per_page=${perPage.value}&page=${page.value}&sort=updated`
     );
+    // Filter out personal website
+    response.data = response.data.filter(repository => repository.name !== 'Tech_World_Mihai_V2');
+
     projects.value = response.data.map(project => {
       const additionalData = {
           prettyName: projectsLocalDataRef.value[project.name].prettyName ?? '',

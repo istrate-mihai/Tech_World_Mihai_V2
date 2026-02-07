@@ -1,8 +1,17 @@
 [build]
   command = "npm run build"
   publish = "dist"
+  functions = "functions"
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+
+# For better performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    cache-control = '''
+    public, max-age=3600, s-maxage=3600
+    '''

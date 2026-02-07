@@ -1,3 +1,148 @@
+<script setup>
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
+import projectsLocalData from '@/data/projects';
+
+const projects             = ref([]);
+const projectsList         = ref(null);
+const skills               = ref([]);
+const projectsCount        = ref(5);
+const perPage              = ref(20);
+const page                 = ref(1);
+const loading              = ref(true);
+const errors               = ref(false);
+const projectsLocalDataRef = ref(projectsLocalData);
+
+// Get all images from the assets/img folder
+const images = import.meta.glob('@/assets/img/*', { eager: true })
+
+const getImageUrl = (imageName) => {
+  try {
+    const imagePath   = `/src/assets/img/${imageName}`;
+    const imageModule = images[imagePath];
+
+    if (imageModule) {
+      return imageModule.default || imageModule;
+    }
+
+    return '';
+  }
+  catch (error) {
+    console.error('Error loading image:', error);
+    return '';
+  }
+};
+
+function getProjects() {
+    projectsList.value = projects.value.slice(0, projectsCount.value);
+    // console.log('projectsList', projectsList.value);
+
+    return projectsList.value;
+}
+
+function loadMore() {
+  if (projectsList.value.length < projects.value.length) {
+    projectsCount.value += 5;
+    projectsList.value  = projects.value.slice(0, projectsCount.value);
+  }
+}
+
+function handleImageError(event) {
+  // Replace broken image with placeholder
+  const parent = event.target.parentElement;
+  parent.innerHTML =
+      `
+          <div class="thumbnail-placeholder">
+              <i class="fas fa-code"></i>
+              <span>Image not available</span>
+          </div>
+      `;
+};
+
+async function fetchData() {
+  loading.value = true;
+  errors.value  = null;
+
+  try {
+    const response = await axios.get(
+      `https://api.github.com/users/istrate-mihai/repos?per_page=${perPage.value}&page=${page.value}&sort=updated`
+    );
+    projects.value = response.data.map(project => {
+      const additionalData = {
+          prettyName: projectsLocalDataRef.value[project.name].prettyName ?? '',
+          website: projectsLocalDataRef.value[project.name].website ?? '',
+          img: projectsLocalDataRef.value[project.name].img ?? '',
+          language: projectsLocalDataRef.value[project.name].language ?? project.language,
+      };
+
+      return {
+        ...project,
+        ...additionalData,
+      };
+    });
+
+    projects.value.forEach(project => {
+      // console.log('project', project);
+
+      if (project.language && !skills.value.includes(project.language)) {
+        skills.value.push(project.language);
+      }
+    });
+  }
+  catch(error) {
+    console.log(error);
+    errors.value = true;
+  }
+  finally {
+    loading.value = false;
+    getProjects();
+  }
+}
+
+function formatDate(dateString) {
+  const date     = new Date(dateString);
+  const now      = new Date();
+  const diffTime = Math.abs(now - date);
+  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+  if (diffDays === 0) return 'Today';
+  if (diffDays === 1) return 'Yesterday';
+  if (diffDays < 7)   return `${diffDays} days ago`;
+  if (diffDays < 30)  return `${Math.floor(diffDays / 7)} weeks ago`;
+
+  return date.toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric'
+  });
+}
+
+function trimTitle(text) {
+  if (!text) return '';
+
+  let title = text.replace(/[-_]/g, ' ');
+
+  // Capitalize first letter of each word
+  title = title.replace(/\b\w/g, l => l.toUpperCase());
+
+  if (title.length > 25) return title.slice(0, 25) + '...';
+
+  return title;
+}
+
+function trimText(text) {
+  if (!text) return '';
+
+  if (text.length > 120) return text.slice(0, 120) + '...';
+
+  return text;
+}
+
+onMounted(() => {
+    setTimeout(fetchData, 3000);
+});
+</script>
+
 <template>
     <div>
         <header id="site_header" class="container d_flex">
@@ -31,7 +176,7 @@
                         <!-- Project Image/Thumbnail -->
                         <div class="project-thumbnail">
                             <div v-if="project.img" class="thumbnail-image">
-                                <img :src="require('../assets/img/' + project.img)"
+                                <img :src="getImageUrl(project.img)"
                                     :alt="project.prettyName || project.name"
                                     @error="handleImageError" />
                             </div>
@@ -120,130 +265,3 @@
         </main>
     </div>
 </template>
-
-<script>
-import axios from 'axios';
-import projectsLocalData from '@/data/projects';
-
-export default {
-    name: 'ProjectsPage',
-    data() {
-        return {
-            projects: [],
-            projectsList: null,
-            skills: [],
-            projectsCount: 5,
-            perPage: 20,
-            page: 1,
-            loading: true,
-            errors: false,
-        }
-    },
-    methods: {
-        fetchData: function () {
-            axios
-                .get(`https://api.github.com/users/istrate-mihai/repos?per_page=${this.perPage}&page=${this.page}`)
-                .then(response => {
-                    const additionalData = {
-                        prettyName: '',
-                        website: '',
-                        img: '',
-                    };
-
-                    this.projects = response.data.map(project => {
-                        if (projectsLocalData[project.name]) {
-                            return {
-                                ...project,
-                                ...projectsLocalData[project.name]
-                            }
-                        }
-
-                        return {
-                            ...project,
-                            ...additionalData,
-                        };
-                    });
-
-
-                    this.projects.forEach(project => {
-                        console.log('project', project);
-
-                        if (project.language && !this.skills.includes(project.language)) {
-                            this.skills.push(project.language);
-                        }
-                    });
-                })
-                .catch(error => {
-                    console.log(error);
-                    this.errors = true;
-                })
-                .finally(() => {
-                    this.loading = false;
-                    this.getProjects();
-                });
-        },
-        getProjects: function () {
-            this.projectsList = this.projects.slice(0, this.projectsCount);
-            // console.log('projectsList', this.projectsList);
-            
-            return this.projectsList;
-        },
-        loadMore: function () {
-            if (this.projectsList.length < this.projects.length) {
-                this.projectsCount += 5;
-                this.projectsList = this.projects.slice(0, this.projectsCount);
-            }
-        },
-        handleImageError: function (event) {
-            // Replace broken image with placeholder
-            const parent = event.target.parentElement;
-            parent.innerHTML =
-                            `
-                                <div class="thumbnail-placeholder">
-                                    <i class="fas fa-code"></i>
-                                    <span>Image not available</span>
-                                </div>
-                            `;
-        },
-        formatDate: function (dateString) {
-            const date = new Date(dateString);
-            const now = new Date();
-            const diffTime = Math.abs(now - date);
-            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-
-            if (diffDays === 0) return 'Today';
-            if (diffDays === 1) return 'Yesterday';
-            if (diffDays < 7) return `${diffDays} days ago`;
-            if (diffDays < 30) return `${Math.floor(diffDays / 7)} weeks ago`;
-
-            return date.toLocaleDateString('en-US', {
-                month: 'short',
-                day: 'numeric',
-                year: 'numeric'
-            });
-        },
-        trimTitle: function (text) {
-            if (!text) return '';
-            let title = text.replace(/[-_]/g, ' ');
-            // Capitalize first letter of each word
-            title = title.replace(/\b\w/g, l => l.toUpperCase());
-            if (title.length > 25) {
-                return title.slice(0, 25) + '...';
-            }
-            return title;
-        },
-        trimText: function (text) {
-            if (!text) return '';
-            if (text.length > 120) {
-                return text.slice(0, 120) + '...';
-            }
-            return text;
-        }
-    },
-    mounted() {
-        setTimeout(this.fetchData, 3000);
-    },
-}   
-</script>
-
-<style></style>

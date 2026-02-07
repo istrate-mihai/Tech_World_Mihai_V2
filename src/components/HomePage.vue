@@ -20,15 +20,6 @@
     </main>
 </template>
 
-<script>
-export default {
-    name: 'HomePage',
-    data() {
-        return {
-            avatarImage: require('../assets/img/avatar.png'),
-        }
-    }
-}
+<script setup>
+import avatarImage from '@/assets/img/avatar.png';
 </script>
-
-<style></style>

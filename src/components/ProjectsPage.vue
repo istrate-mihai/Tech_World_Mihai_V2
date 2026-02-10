@@ -69,7 +69,6 @@ async function fetchData() {
     );
     // Filter out personal website
     response.data = response.data.filter(repository => repository.name !== 'Tech_World_Mihai_V2');
-    console.log(response.data);
 
     projects.value = response.data.map(project => {
       const additionalData = {

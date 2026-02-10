@@ -1,4 +1,10 @@
 export default {
+      "job-board": {
+        prettyName: 'Job Board',
+        website: 'https://job-board-production-app.up.railway.app/jobs',
+        img: 'job_board.png',
+        language: 'PHP - Laravel',
+    },
     "book-review": {
         prettyName: 'Book Reviews',
         website: 'https://book-review-production-dbeb.up.railway.app/books',

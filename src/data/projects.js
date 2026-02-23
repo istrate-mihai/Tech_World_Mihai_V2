@@ -1,5 +1,11 @@
 export default {
-      "job-board": {
+    "Infrastructure_Setup_With_Vagrant_and_Bash": {
+        prettyName: 'Phase 1 - DevOps VM Infrastructure',
+        website: 'https://github.com/istrate-mihai/Infrastructure_Setup_With_Vagrant_and_Bash',
+        img: 'java-app.png',
+        language: 'Vagrant - Bash',
+    },
+    "job-board": {
         prettyName: 'Job Board',
         website: 'https://job-board-production-app.up.railway.app/jobs',
         img: 'job_board.png',

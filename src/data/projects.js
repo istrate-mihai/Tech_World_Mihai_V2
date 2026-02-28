@@ -1,4 +1,10 @@
 export default {
+      "Devops-Automation-Toolkit": {
+        prettyName: 'Phase 2 - DevOps Automation Toolkit',
+        website: 'https://github.com/istrate-mihai/Devops-Automation-Toolkit',
+        img: 'github_actions_project.png',
+        language: 'Python - Bash - Github Actions',
+    },
     "Infrastructure_Setup_With_Vagrant_and_Bash": {
         prettyName: 'Phase 1 - DevOps VM Infrastructure',
         website: 'https://github.com/istrate-mihai/Infrastructure_Setup_With_Vagrant_and_Bash',

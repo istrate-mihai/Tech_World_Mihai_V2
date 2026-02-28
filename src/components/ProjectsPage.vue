@@ -211,10 +211,11 @@ onMounted(() => {
                             <p class="project-description" v-if="project.description">
                                 {{ trimText(project.description) }}
                             </p>
+                            <!--
                             <p class="project-description no-desc" v-else>
                                 No description provided
                             </p>
-
+                            -->
                             <!-- Project Meta Info -->
                             <div class="project-meta">
                                 <div class="meta-item" v-if="project.stargazers_count !== undefined">

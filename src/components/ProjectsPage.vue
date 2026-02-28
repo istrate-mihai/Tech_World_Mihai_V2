@@ -3,15 +3,16 @@ import { ref, onMounted } from 'vue';
 import axios from 'axios';
 import projectsLocalData from '@/data/projects';
 
-const projects             = ref([]);
-const projectsList         = ref(null);
-const skills               = ref([]);
-const projectsCount        = ref(5);
-const perPage              = ref(20);
-const page                 = ref(1);
-const loading              = ref(true);
-const errors               = ref(false);
-const projectsLocalDataRef = ref(projectsLocalData);
+const projects               = ref([]);
+const projectsList           = ref(null);
+const skills                 = ref([]);
+const projectsCount          = ref(5);
+const perPage                = ref(20);
+const page                   = ref(1);
+const loading                = ref(true);
+const errors                 = ref(false);
+const projectsLocalDataRef   = ref(projectsLocalData);
+const filteredPublicProjects = ['Odin-Project-Node-JS-Project-1'];
 
 // Get all images from the assets/img folder
 const images = import.meta.glob('@/assets/img/*', { eager: true })
@@ -69,7 +70,8 @@ async function fetchData() {
     );
     // Filter out personal website
     response.data = response.data.filter(repository => repository.name !== 'Tech_World_Mihai_V2');
-    console.log(response.data);
+    response.data = response.data.filter(project => !filteredPublicProjects.includes(project.name));
+    // console.log(response.data);
 
     projects.value = response.data.map(project => {
       const additionalData = {

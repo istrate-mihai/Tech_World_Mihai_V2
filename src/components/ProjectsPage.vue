@@ -12,7 +12,10 @@ const page                   = ref(1);
 const loading                = ref(true);
 const errors                 = ref(false);
 const projectsLocalDataRef   = ref(projectsLocalData);
-const filteredPublicProjects = ['Odin-Project-Node-JS-Project-1'];
+const filteredPublicProjects = [
+  'Odin-Project-Node-JS-Project-1',
+  'Odin-Project--Project-Mini-Message-Board',
+];
 
 // Get all images from the assets/img folder
 const images = import.meta.glob('@/assets/img/*', { eager: true })
@@ -71,7 +74,7 @@ async function fetchData() {
     // Filter out personal website
     response.data = response.data.filter(repository => repository.name !== 'Tech_World_Mihai_V2');
     response.data = response.data.filter(project => !filteredPublicProjects.includes(project.name));
-    // console.log(response.data);
+    console.log(response.data);
 
     projects.value = response.data.map(project => {
       const additionalData = {

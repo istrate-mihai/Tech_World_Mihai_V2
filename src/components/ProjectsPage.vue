@@ -2,6 +2,7 @@
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
 import projectsLocalData from '@/data/projects';
+import AppFooter from './ui/AppFooter.vue';
 
 const projects               = ref([]);
 const projectsList           = ref(null);
@@ -272,6 +273,8 @@ onMounted(() => {
                     </div>
                 </div>
             </section>
+
+          <AppFooter />
         </main>
     </div>
 </template>

@@ -133,8 +133,7 @@ a:hover {
 body {
   font-family: 'Raleway', Arial, Helvetica, sans-serif;
   color: white;
-  background: linear-gradient(116.82deg, #3D5467 0%, #1A232B 99.99%, #333333 100%);
-
+  background: linear-gradient(116.82deg, #3D5467 0%, #1A232B 45%, #333333 100%);
 }
 
 a {
@@ -155,6 +154,7 @@ main#home {
   text-align: center;
   width: 80%;
   line-height: 1.5rem;
+  margin: auto;
 }
 
 #home>.about__me>h1 {

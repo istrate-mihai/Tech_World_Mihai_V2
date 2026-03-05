@@ -764,7 +764,6 @@ main ul li::before {
 
 #projects-list {
   text-align: left;
-  font-weight: 100;
   display: inline-block;
   margin: 25px 0;
 }
@@ -782,4 +781,60 @@ nav a {
 
 nav a i {
   font-size: 0.75rem;
+}
+
+.two-column {
+  display: inline-grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  margin: 2rem;
+  color: rgba(255, 255, 255, 0.7); /* light grey */
+}
+
+#contact-details {
+  display: inline-grid;
+}
+
+#contact-details span {
+  margin: 0.5rem 0;
+  line-height: 1.6;
+  color: inherit;
+  font-size: 16px;
+}
+
+#contact-details p:first-child {
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+#projects-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+#projects-list li {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: inherit;
+}
+
+#projects-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: white;
+  font-weight: bold;
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+@media (max-width: 600px) {
+  .two-column {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 }

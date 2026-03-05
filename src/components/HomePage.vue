@@ -13,26 +13,17 @@
           Laravel/LAMP stack and Vue.js, and I'm eager to collaborate on new projects. I can build:
         </p>
 
+      <div class="two-column">
         <ul id="projects-list">
-          <li>
-            Custom CRM or Dashboard
-          </li>
-          <li>
-            Content Management System (CMS)
-          </li>
-          <li>
-            E-commerce Platform
-          </li>
-          <li>
-            Booking & Reservation System
-          </li>
-          <li>
-            RESTful API
-          </li>
-          <li>
-            Presentation / Business Website
-          </li>
+          <li v-for="(appType, index) in appTypeList" :key="index">{{ appType }}</li>
         </ul>
+
+        <div id="contact-details">
+          <span>Contact Details:</span>
+          <span>Telephone: (+40)799 556 693</span>
+          <span>Email: i.mihai9960@gmail.com</span>
+        </div>
+      </div>
 
         <div class="skills_projects_link">
           <router-link to="/projects">Projects/Skills</router-link>
@@ -46,4 +37,14 @@
 <script setup>
 import avatarImage from '@/assets/img/avatar.png';
 import AppFooter from './ui/AppFooter.vue';
+import { ref } from 'vue';
+
+let appTypeList = ref([
+  'Custom CRM or Dashboard',
+  'Content Management System (CMS)',
+  'E-commerce Platform',
+  'Booking & Reservation System',
+  'RESTful API',
+  'Presentation / Business Website',
+]);
 </script>

@@ -37,7 +37,6 @@ const getImageUrl = (imageName) => {
 
 function getProjects() {
     projectsList.value = projects.value.slice(0, projectsCount.value);
-    // console.log('projectsList', projectsList.value);
 
     return projectsList.value;
 }
@@ -72,7 +71,6 @@ async function fetchData() {
     // Filter out personal website
     response.data = response.data.filter(repository => repository.name !== 'Tech_World_Mihai_V2');
     response.data = response.data.filter(project => !filteredPublicProjects.includes(project.name));
-    console.log(response.data);
 
     projects.value = response.data.map(project => {
       const additionalData = {
@@ -89,8 +87,6 @@ async function fetchData() {
     });
 
     projects.value.forEach(project => {
-      // console.log('project', project);
-
       if (project.language && !skills.value.includes(project.language)) {
         skills.value.push(project.language);
       }

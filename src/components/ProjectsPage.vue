@@ -13,10 +13,7 @@ const page                   = ref(1);
 const loading                = ref(true);
 const errors                 = ref(false);
 const projectsLocalDataRef   = ref(projectsLocalData);
-const filteredPublicProjects = [
-  'Odin-Project-Node-JS-Project-1',
-  'Odin-Project--Project-Mini-Message-Board',
-];
+const filteredPublicProjects = [];
 
 // Get all images from the assets/img folder
 const images = import.meta.glob('@/assets/img/*', { eager: true })

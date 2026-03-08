@@ -1,4 +1,10 @@
 export default {
+    "recipe-sharing-platform": {
+        prettyName: 'Recipe Sharing Platform',
+        website: 'https://recipe-sharing-platform-vue3.netlify.app/',
+        img: 'recipe_sharing_platform.png',
+        language: 'Javascript - Vue.js',
+    },
     "movie-browser": {
         prettyName: 'Movie Browser',
         website: 'https://movie-browser-vue3.netlify.app/',
@@ -35,12 +41,12 @@ export default {
         img: 'monster_slayer_game.png',
         language: 'Javascript - Vue.js',
     },
-    "Shopping_Cart": {
-        prettyName: 'Shopping Cart',
-        website: 'https://shopping-cart-area.netlify.app/',
-        img: 'online_shopping_cart.png',
-        language: 'Javascript - Vue.js',
-    },
+    // "Shopping_Cart": {
+    //     prettyName: 'Shopping Cart',
+    //     website: 'https://shopping-cart-area.netlify.app/',
+    //     img: 'online_shopping_cart.png',
+    //     language: 'Javascript - Vue.js',
+    // },
     "Javascript_Games": {
         prettyName: 'Javascript Games',
         website: 'https://javascript-games-area.netlify.app/',

@@ -13,7 +13,10 @@ const page                   = ref(1);
 const loading                = ref(true);
 const errors                 = ref(false);
 const projectsLocalDataRef   = ref(projectsLocalData);
-const filteredPublicProjects = ['java-bank-cli',];
+const filteredPublicProjects = [
+    'java-bank-cli',
+    'java-shape-calculator',
+];
 
 // Get all images from the assets/img folder
 const images = import.meta.glob('@/assets/img/*', { eager: true })

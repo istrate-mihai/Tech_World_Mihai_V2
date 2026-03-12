@@ -16,6 +16,7 @@ const projectsLocalDataRef   = ref(projectsLocalData);
 const filteredPublicProjects = [
     'java-bank-cli',
     'java-shape-calculator',
+    'java-inventory-manager',
 ];
 
 // Get all images from the assets/img folder

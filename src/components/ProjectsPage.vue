@@ -17,6 +17,7 @@ const filteredPublicProjects = [
     'java-bank-cli',
     'java-shape-calculator',
     'java-inventory-manager',
+    'recipe-sharing-platform-api',
 ];
 
 // Get all images from the assets/img folder

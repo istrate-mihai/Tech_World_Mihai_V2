@@ -18,6 +18,7 @@ const filteredPublicProjects = [
     'java-shape-calculator',
     'java-inventory-manager',
     'recipe-sharing-platform-api',
+    'DSA_Algorithms_Practice_Typescript',
 ];
 
 // Get all images from the assets/img folder

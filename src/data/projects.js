@@ -1,7 +1,7 @@
 export default {
     "recipe-sharing-platform": {
         prettyName: 'Recipe Sharing Platform',
-        website: 'https://recipe-sharing-platform-vue3.netlify.app/',
+        website: 'https://recipe-sharing-platform.com/',
         img: 'recipe_sharing_platform.png',
         language: 'Javascript - Vue.js',
     },

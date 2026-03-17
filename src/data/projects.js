@@ -1,10 +1,4 @@
 export default {
-    "pokemon_explorer": {
-        prettyName: 'Pokemon Explorer',
-        website: 'https://pokemon-explorer-catch-em-all.netlify.app/',
-        img: 'pokemon_explorer.png',
-        language: 'Javascript - React',
-    },
     "recipe-sharing-platform": {
         prettyName: 'Recipe Sharing Platform',
         website: 'https://recipe-sharing-platform.com/',
@@ -41,11 +35,11 @@ export default {
         img: 'book_review.png',
         language: 'PHP - Laravel',
     },
-    "Monster_Slayer_Game": {
-        prettyName: 'Monster Slayer',
-        website: 'https://monster-slayer-game-area.netlify.app/',
-        img: 'monster_slayer_game.png',
-        language: 'Javascript - Vue.js',
+    "pokemon_explorer": {
+        prettyName: 'Pokemon Explorer',
+        website: 'https://pokemon-explorer-catch-em-all.netlify.app/',
+        img: 'pokemon_explorer.png',
+        language: 'Javascript - React',
     },
     "Javascript_Games": {
         prettyName: 'Javascript Games',

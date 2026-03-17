@@ -203,7 +203,7 @@ onMounted(() => {
                                     <a :href="project.website || project.html_url"
                                     target="_blank"
                                     class="project-link">
-                                        {{ trimTitle(project.prettyName || project.name) }}
+                                        {{ trimTitle(project.name || project.prettyName) }}
                                     </a>
                                 </h3>
 

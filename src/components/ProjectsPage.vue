@@ -19,6 +19,7 @@ const filteredPublicProjects = [
     'java-inventory-manager',
     'recipe-sharing-platform-api',
     'DSA_Algorithms_Practice_Typescript',
+    'Monster_Slayer_Game',
 ];
 
 // Get all images from the assets/img folder

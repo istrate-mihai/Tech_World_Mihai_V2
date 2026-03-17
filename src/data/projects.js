@@ -1,4 +1,10 @@
 export default {
+    "pokemon_explorer": {
+        prettyName: 'Pokemon Explorer',
+        website: 'https://pokemon-explorer-catch-em-all.netlify.app/',
+        img: 'pokemon_explorer.png',
+        language: 'Javascript - React',
+    },
     "recipe-sharing-platform": {
         prettyName: 'Recipe Sharing Platform',
         website: 'https://recipe-sharing-platform.com/',

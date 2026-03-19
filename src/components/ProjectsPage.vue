@@ -20,6 +20,7 @@ const filteredPublicProjects = [
     'recipe-sharing-platform-api',
     'DSA_Algorithms_Practice_Typescript',
     'Monster_Slayer_Game',
+    'expenseflow',
 ];
 
 // Get all images from the assets/img folder

@@ -75,23 +75,27 @@ async function fetchData() {
     const response = await axios.get(
       `https://api.github.com/users/istrate-mihai/repos?per_page=${perPage.value}&page=${page.value}&sort=updated`
     );
-    // Filter out personal website
-    response.data = response.data.filter(repository => repository.name !== 'Tech_World_Mihai_V2');
-    response.data = response.data.filter(project => !filteredPublicProjects.includes(project.name));
 
+    // Filter out personal website
+    response.data  = response.data.filter(repository => repository.name !== 'Tech_World_Mihai_V2');
+    response.data  = response.data.filter(project => !filteredPublicProjects.includes(project.name));
     projects.value = response.data.map(project => {
       const additionalData = {
           prettyName: projectsLocalDataRef.value[project.name].prettyName ?? '',
           website: projectsLocalDataRef.value[project.name].website ?? '',
           img: projectsLocalDataRef.value[project.name].img ?? '',
           language: projectsLocalDataRef.value[project.name].language ?? project.language,
+          position: projectsLocalDataRef.value[project.name].position ?? -1,
       };
 
-      return {
-        ...project,
-        ...additionalData,
+      const projectListFormatted = {
+          ...project,
+          ...additionalData,
       };
+
+      return projectListFormatted;
     });
+    projects.value.sort((project1, project2) => project1.position - project2.position);
 
     projects.value.forEach(project => {
       if (project.language && !skills.value.includes(project.language)) {

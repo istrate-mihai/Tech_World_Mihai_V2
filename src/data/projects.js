@@ -1,15 +1,21 @@
 export default {
+    "expenseflow": {
+        prettyName: 'Expense Flow',
+        website: 'https://expenseflow-swart.vercel.app/login',
+        img: 'expenseflow.png',
+        language: 'ReactJS',
+    },
     "recipe-sharing-platform": {
         prettyName: 'Recipe Sharing Platform',
         website: 'https://recipe-sharing-platform.com/',
         img: 'recipe_sharing_platform.png',
-        language: 'Javascript - Vue.js',
+        language: 'Vue.js',
     },
     "movie-browser": {
         prettyName: 'Movie Browser',
         website: 'https://movie-browser-vue3.netlify.app/',
         img: 'movie_browser.png',
-        language: 'Javascript - Vue.js',
+        language: 'Vue.js',
     },
     "Devops-Automation-Toolkit": {
         prettyName: 'Phase 2 - DevOps Automation Toolkit',
@@ -27,19 +33,19 @@ export default {
         prettyName: 'Job Board',
         website: 'https://job-board-production-app.up.railway.app/jobs',
         img: 'job_board.png',
-        language: 'PHP - Laravel',
+        language: 'Laravel',
     },
     "book-review": {
         prettyName: 'Book Reviews',
         website: 'https://book-review-production-dbeb.up.railway.app/books',
         img: 'book_review.png',
-        language: 'PHP - Laravel',
+        language: 'Laravel',
     },
     "pokemon_explorer": {
         prettyName: 'Pokemon Explorer',
         website: 'https://pokemon-explorer-catch-em-all.netlify.app/',
         img: 'pokemon_explorer.png',
-        language: 'Javascript - React',
+        language: 'ReactJS',
     },
     "Javascript_Games": {
         prettyName: 'Javascript Games',
@@ -56,6 +62,6 @@ export default {
         prettyName: 'Poll Vote App',
         website: 'https://livewire-poll-app-production.up.railway.app/',
         img: 'livewire_poll_app.png',
-        language: 'PHP - Laravel',
+        language: 'Laravel',
     },
 };

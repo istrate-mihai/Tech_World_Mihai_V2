@@ -62,17 +62,24 @@ export default {
         language: 'Laravel',
         position: 9,
     },
+    "Browser-Tools": {
+        prettyName: 'Browser Tools',
+        website: 'https://browser-tools.netlify.app/',
+        img: 'browser_tools.png',
+        position: 10,
+    },
+
     "Lord_Of_The_Rings_Area": {
         prettyName: 'Lord Of The Rings Area',
         website: 'https://lord-of-the-rings-area.netlify.app/',
         img: 'lord_of_the_rings_area.png',
-        position: 10,
+        position: 11,
     },
     "Javascript_Games": {
         prettyName: 'Javascript Games',
         website: 'https://javascript-games-area.netlify.app/',
         img: 'javascript_game_area.png',
         language: 'Javascript',
-        position: 11,
+        position: 12,
     },
 };

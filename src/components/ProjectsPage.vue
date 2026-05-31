@@ -74,7 +74,6 @@ async function fetchData() {
     const response = await axios.get(
       `https://api.github.com/users/istrate-mihai/repos?per_page=${perPage.value}&page=${page.value}&sort=updated`
     );
-    console.log(response.data)
 
     // Filter out personal website
     response.data  = response.data.filter(repository => repository.name !== 'Tech_World_Mihai_V2');

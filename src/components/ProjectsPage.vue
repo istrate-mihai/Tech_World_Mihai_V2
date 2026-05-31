@@ -19,6 +19,7 @@ const filteredPublicProjects = [
     'Monster_Slayer_Game',
     'computer_fundamentals',
     'python_projects',
+    'Link_Academy_PHP_Portfolio',
 ];
 
 // Get all images from the assets/img folder

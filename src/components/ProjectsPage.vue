@@ -14,13 +14,11 @@ const loading                = ref(true);
 const errors                 = ref(false);
 const projectsLocalDataRef   = ref(projectsLocalData);
 const filteredPublicProjects = [
-    'java-bank-cli',
-    'java-shape-calculator',
-    'java-inventory-manager',
     'recipe-sharing-platform-api',
     'DSA_Algorithms_Practice_Typescript',
     'Monster_Slayer_Game',
     'computer_fundamentals',
+    'python_projects',
 ];
 
 // Get all images from the assets/img folder
@@ -76,6 +74,7 @@ async function fetchData() {
     const response = await axios.get(
       `https://api.github.com/users/istrate-mihai/repos?per_page=${perPage.value}&page=${page.value}&sort=updated`
     );
+    console.log(response.data)
 
     // Filter out personal website
     response.data  = response.data.filter(repository => repository.name !== 'Tech_World_Mihai_V2');

@@ -20,6 +20,7 @@ const filteredPublicProjects = [
     'computer_fundamentals',
     'python_projects',
     'Link_Academy_PHP_Portfolio',
+    'recipe-sharing-platform-api-node',
 ];
 
 // Get all images from the assets/img folder

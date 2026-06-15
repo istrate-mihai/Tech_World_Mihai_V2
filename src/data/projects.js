@@ -13,7 +13,7 @@ export default {
         language: 'Vue.js - Laravel',
         position: 2,
     },
-    "techworldmihai_2": {
+    "electronics-projects": {
         prettyName: 'Electronics Projects',
         website: 'https://tech-world-mihai-v2-electronics.netlify.app',
         img: 'tech_world_mihai_v2_electronics.png',

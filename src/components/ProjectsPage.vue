@@ -21,6 +21,7 @@ const filteredPublicProjects = [
     'python_projects',
     'Link_Academy_PHP_Portfolio',
     'recipe-sharing-platform-api-node',
+    'healthops-ai',
 ];
 
 // Get all images from the assets/img folder

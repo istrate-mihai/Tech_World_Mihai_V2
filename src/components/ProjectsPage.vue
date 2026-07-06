@@ -22,6 +22,7 @@ const filteredPublicProjects = [
     'Link_Academy_PHP_Portfolio',
     'recipe-sharing-platform-api-node',
     'healthops-ai',
+    'cnc-data-pipeline',
 ];
 
 // Get all images from the assets/img folder

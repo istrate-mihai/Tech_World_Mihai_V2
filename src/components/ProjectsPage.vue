@@ -22,6 +22,13 @@ const filteredPublicProjects = [
     'Link_Academy_PHP_Portfolio',
     'recipe-sharing-platform-api-node',
     'healthops-ai',
+    'expenseflow',
+    'Browser-Tools',
+    'Lord_Of_The_Rings_Area',
+    'Javascript_Games',
+    'book-review',
+    'Livewire-Poll-App',
+    'job-board',
 ];
 
 // Get all images from the assets/img folder

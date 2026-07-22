@@ -29,6 +29,7 @@ const filteredPublicProjects = [
     'book-review',
     'Livewire-Poll-App',
     'job-board',
+    'jenkins-build-java',
 ];
 
 // Get all images from the assets/img folder

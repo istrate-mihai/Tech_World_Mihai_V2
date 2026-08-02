@@ -14,6 +14,7 @@ const loading                = ref(true);
 const errors                 = ref(false);
 const projectsLocalDataRef   = ref(projectsLocalData);
 const filteredPublicProjects = [
+    'insurance-charge-estimator',
     'recipe-sharing-platform-api',
     'DSA_Algorithms_Practice_Typescript',
     'Monster_Slayer_Game',
@@ -85,7 +86,6 @@ async function fetchData() {
     const response = await axios.get(
       `https://api.github.com/users/istrate-mihai/repos?per_page=${perPage.value}&page=${page.value}&sort=updated`
     );
-
     // Filter out personal website
     response.data  = response.data.filter(repository => repository.name !== 'Tech_World_Mihai_V2');
     response.data  = response.data.filter(project => !filteredPublicProjects.includes(project.name));

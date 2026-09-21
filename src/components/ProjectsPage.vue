@@ -31,6 +31,7 @@ const filteredPublicProjects = [
     'Livewire-Poll-App',
     'job-board',
     'jenkins-build-java',
+    'simlab',
 ];
 
 // Get all images from the assets/img folder
@@ -86,6 +87,7 @@ async function fetchData() {
     const response = await axios.get(
       `https://api.github.com/users/istrate-mihai/repos?per_page=${perPage.value}&page=${page.value}&sort=updated`
     );
+
     // Filter out personal website
     response.data  = response.data.filter(repository => repository.name !== 'Tech_World_Mihai_V2');
     response.data  = response.data.filter(project => !filteredPublicProjects.includes(project.name));

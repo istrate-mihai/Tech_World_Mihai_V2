@@ -33,6 +33,7 @@ const filteredPublicProjects = [
     'jenkins-build-java',
     'simlab',
     'job-agent-site',
+    'job-agent',
 ];
 
 // Get all images from the assets/img folder

@@ -62,12 +62,4 @@ export default {
     language: 'Vagrant - Bash',
     position: 9,
   },
-  'python-interview-prep': {
-    prettyName: 'Python Interview Prep',
-    website: 'https://github.com/istrate-mihai/python-interview-prep',
-    img: '', // no cover yet: the page shows a placeholder until one is added to src/assets/img
-    language: 'Python',
-    description: 'Data structures, algorithms and interview patterns in Python, solved tier by tier with tests.',
-    position: 10,
-  },
 }
